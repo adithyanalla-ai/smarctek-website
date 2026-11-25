@@ -1,0 +1,35 @@
+{
+  "name": "smarctek-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SMARCTEK LLC corporate website: static-generated React/TypeScript site with a Node enquiry API",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "assets": "python3 scripts/extract_assets.py scripts/source/proforma.pdf scripts/source/letterhead.png .",
+    "build": "tsx src/build.tsx",
+    "typecheck": "tsc --noEmit",
+    "start": "node server/server.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "test:ui": "node tests/ui.mjs",
+    "audit": "node tests/audit.mjs",
+    "test": "npm run build && npm run audit && node tests/e2e.mjs && node tests/vercel-api.mjs",
+    "test:vercel": "node tests/vercel-api.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "^0.25.0",
+    "playwright": "^1.50.0",
+    "sharp": "^0.34.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
